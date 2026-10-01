@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerScan — Professional ATS & Skill Analyzer</title>
+  <meta name="description" content="Enterprise-grade ATS resume checker, real-time skill gap analysis, and tailored career readiness intelligence.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar" id="appSidebar">
+      <div class="sidebar-header">
+        <a href="#dashboard" class="brand-logo" id="brandLogoBtn">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <path d="M9 15l2 2 4-4"></path>
+            </svg>
+          </div>
+          <span class="brand-name">CareerScan</span>
+        </a>
+        <span class="brand-badge">PRO</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Core Platform</div>
+        
+        <a class="nav-link active" data-view="dashboard" id="nav-dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <a class="nav-link" data-view="resume-analyzer" id="nav-resume-analyzer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span>Resume Analyzer</span>
+        </a>
+
+        <a class="nav-link" data-view="job-description" id="nav-job-description">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+          <span>Job Description</span>
+        </a>
+
+        <div class="nav-section-title">Analysis & Reports</div>
+
+        <a class="nav-link" data-view="skill-analysis" id="nav-skill-analysis">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <span>Skill Analysis</span>
+          <span class="nav-badge" id="sidebarMissingCount">4 Missing</span>
+        </a>
+
+        <a class="nav-link" data-view="ats-report" id="nav-ats-report">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <span>ATS Report</span>
+        </a>
+
+        <a class="nav-link" data-view="skill-gap" id="nav-skill-gap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          <span>Skill Gap</span>
+        </a>
+
+        <a class="nav-link" data-view="keyword-analysis" id="nav-keyword-analysis">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="4 7 4 4 20 4 20 7"></polyline>
+            <line x1="9" y1="20" x2="15" y2="20"></line>
+            <line x1="12" y1="4" x2="12" y2="20"></line>
+          </svg>
+          <span>Keyword Analysis</span>
+        </a>
+
+        <a class="nav-link" data-view="improvements" id="nav-improvements">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+          </svg>
+          <span>Resume Improvements</span>
+        </a>
+
+        <a class="nav-link" data-view="history" id="nav-history">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span>History</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="user-profile-btn" id="userProfileBtn" title="Account settings">
+          <div class="user-avatar">AM</div>
+          <div class="user-info">
+            <div class="user-name">Alex Morgan</div>
+            <div class="user-plan">Enterprise Career Pro</div>
+          </div>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <main class="main-wrapper">
+      
+      <!-- TOP APP HEADER -->
+      <header class="top-header">
+        <div class="header-left">
+          <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle menu">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          
+          <div class="current-role-badge">
+            <span class="status-dot"></span>
+            <span id="activeJobBadge">Target: Data Analyst @ Stripe</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="btn btn-secondary btn-sm" id="btnQuickScan" title="Scan new position">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <span>Upload Resume</span>
+          </button>
+          
+          <button class="btn btn-primary btn-sm" id="btnExportReport" title="Export PDF / Print">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9V2h12v7"></path>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span>Export Report</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- PAGE CONTENT CONTAINER -->
+      <div class="page-content">
+        
+        <!-- TARGET ROLE SWITCHER BAR -->
+        <section class="role-switcher-bar" aria-label="Role presets">
+          <div class="role-switcher-label">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>Target Benchmark Role:</span>
+          </div>
+          <div class="role-pills" id="rolePillList">
+            <button class="role-pill active" data-role="data-analyst">Data Analyst (Stripe)</button>
+            <button class="role-pill" data-role="business-analyst">Business Analyst (McKinsey)</button>
+            <button class="role-pill" data-role="python-dev">Python Developer (Spotify)</button>
+            <button class="role-pill" data-role="frontend-eng">Senior Frontend (Vercel)</button>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 1: DASHBOARD
+             ========================================== -->
+        <section class="view-section active" id="view-dashboard">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Good afternoon, Alex</h1>
+              <p class="page-subtitle">Your career readiness overview and ATS optimization benchmarks.</p>
+            </div>
+            <div>
+              <button class="btn btn-primary-blue" id="btnRunFullAudit">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <span>Run Live ATS Audit</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- TOP 4 METRIC CARDS -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-header">
+                <span>ATS Score</span>
+                <div class="stat-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 14 14"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="stat-value-row">
+                <span class="stat-value" id="dashScoreVal">82</span>
+                <span class="stat-value-sub">/ 100</span>
+              </div>
+              <div class="stat-delta positive">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+                <span>↑ 6 points vs last scan</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-header">
+                <span>Skill Match</span>
+                <div class="stat-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="stat-value-row">
+                <span class="stat-value" id="dashSkillMatchVal">87%</span>
+              </div>
+              <div class="stat-delta positive">
+                <span>Strong alignment with job profile</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-header">
+                <span>Missing Skills</span>
+                <div class="stat-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                  </svg>
+                </div>
+              </div>
+              <div class="stat-value-row">
+                <span class="stat-value" id="dashMissingSkillsVal">4</span>
+                <span class="stat-value-sub">identified</span>
+              </div>
+              <div class="stat-delta neutral">
+                <span>2 high-priority keywords</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-header">
+                <span>Applications Tracked</span>
+                <div class="stat-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="stat-value-row">
+                <span class="stat-value">12</span>
+                <span class="stat-value-sub">active</span>
+              </div>
+              <div class="stat-delta positive">
+                <span>4 interviews scheduled</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2 COLUMN DASHBOARD OVERVIEW -->
+          <div class="grid-2col">
+            
+            <!-- LEFT: ATS MATCH GAUGE & BREAKDOWN -->
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title">Resume Match Assessment</h2>
+                <a class="card-action" data-view="ats-report">View Full Breakdown &rarr;</a>
+              </div>
+              
+              <div class="ats-score-highlight">
+                <div class="score-circle-wrapper">
+                  <svg class="score-svg" viewBox="0 0 120 120">
+                    <circle class="score-track" cx="60" cy="60" r="54"></circle>
+                    <circle class="score-fill" id="dashScoreRing" cx="60" cy="60" r="54"></circle>
+                  </svg>
+                  <div class="score-inner-text">
+                    <div class="score-number" id="dashScoreRingNum">82</div>
+                    <div class="score-max">/ 100</div>
+                  </div>
+                </div>
+
+                <div class="score-summary-text">
+                  <div class="score-badge-status" id="dashScoreBadge">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Strong Match</span>
+                  </div>
+                  <p class="score-summary-p">
+                    Your resume surpasses the <strong>75-point baseline</strong> for recruiter screening at Stripe. Addressing 4 missing technical keywords will push readiness above 90%.
+                  </p>
+                </div>
+              </div>
+
+              <!-- PROGRESS LIST -->
+              <div class="progress-list" style="margin-top: 1.25rem;">
+                <div class="progress-item">
+                  <div class="progress-meta">
+                    <span class="progress-label">Keyword Match</span>
+                    <span class="progress-val" id="dashProgKeywordVal">86%</span>
+                  </div>
+                  <div class="progress-bar-bg">
+                    <div class="progress-bar-fill success" id="dashProgKeywordBar" style="width: 86%;"></div>
+                  </div>
+                </div>
+
+                <div class="progress-item">
+                  <div class="progress-meta">
+                    <span class="progress-label">Skills Match</span>
+                    <span class="progress-val" id="dashProgSkillsVal">84%</span>
+                  </div>
+                  <div class="progress-bar-bg">
+                    <div class="progress-bar-fill success" id="dashProgSkillsBar" style="width: 84%;"></div>
+                  </div>
+                </div>
+
+                <div class="progress-item">
+                  <div class="progress-meta">
+                    <span class="progress-label">Experience Match</span>
+                    <span class="progress-val" id="dashProgExpVal">78%</span>
+                  </div>
+                  <div class="progress-bar-bg">
+                    <div class="progress-bar-fill warning" id="dashProgExpBar" style="width: 78%;"></div>
+                  </div>
+                </div>
+
+                <div class="progress-item">
+                  <div class="progress-meta">
+                    <span class="progress-label">Education Match</span>
+                    <span class="progress-val" id="dashProgEduVal">92%</span>
+                  </div>
+                  <div class="progress-bar-bg">
+                    <div class="progress-bar-fill success" id="dashProgEduBar" style="width: 92%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: URGENT SKILL GAPS & RECOMMENDATIONS -->
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title">Priority Skill Gaps</h2>
+                <a class="card-action" data-view="skill-analysis">Skill Matrix &rarr;</a>
+              </div>
+
+              <div class="skill-category-block">
+                <div class="skill-category-header">
+                  <span class="skill-category-title">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--danger);">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="12" y1="8" x2="12" y2="12"></line>
+                      <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    Critical Missing from Resume
+                  </span>
+                  <span class="skill-category-count badge-count-danger" id="dashMissingCountBadge">4 items</span>
+                </div>
+                <div class="skills-badge-wrap" id="dashMissingBadgeWrap">
+                  <span class="skill-badge skill-badge-missing">＋ AWS</span>
+                  <span class="skill-badge skill-badge-missing">＋ Docker</span>
+                  <span class="skill-badge skill-badge-missing">＋ Apache Airflow</span>
+                  <span class="skill-badge skill-badge-missing">＋ Snowflake</span>
+                </div>
+              </div>
+
+              <div class="skill-category-block">
+                <div class="skill-category-header">
+                  <span class="skill-category-title">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--warning);">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 14 14"></polyline>
+                    </svg>
+                    Skills to Emphasize
+                  </span>
+                  <span class="skill-category-count badge-count-warning">2 items</span>
+                </div>
+                <div class="skills-badge-wrap" id="dashImproveBadgeWrap">
+                  <span class="skill-badge skill-badge-improve">◐ Machine Learning</span>
+                  <span class="skill-badge skill-badge-improve">◐ Tableau</span>
+                </div>
+              </div>
+
+              <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle);">
+                <div style="font-size: 0.82rem; font-weight: 600; color: var(--color-slate-700); margin-bottom: 0.5rem;">
+                  Quick Recommendation:
+                </div>
+                <p style="font-size: 0.85rem; color: var(--color-slate-600); line-height: 1.5;">
+                  Add AWS data pipeline deployment references in your previous project descriptions to close the cloud infrastructure gap.
+                </p>
+                <button class="btn btn-secondary btn-sm" style="margin-top: 0.75rem;" data-view="improvements">
+                  Review Sentence Rewrites &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- RECENT SCANS SECTION -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Recent Career Scans</h2>
+              <a class="card-action" data-view="history">View Complete History &rarr;</a>
+            </div>
+
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Target Position</th>
+                    <th>Company</th>
+                    <th class="col-right">ATS Score</th>
+                    <th class="col-right">Skill Match</th>
+                    <th>Match Quality</th>
+                    <th class="col-right">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="dashRecentScansTableBody">
+                  <!-- Injected by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 2: RESUME ANALYZER
+             ========================================== -->
+        <section class="view-section" id="view-resume-analyzer">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Resume Analyzer</h1>
+              <p class="page-subtitle">Upload and parse your resume against ATS structure standards.</p>
+            </div>
+            <div>
+              <button class="btn btn-secondary" id="btnLoadSampleResume">Load Sample Resume</button>
+            </div>
+          </div>
+
+          <div class="card" style="margin-bottom: 1.5rem;">
+            <div class="upload-dropzone" id="resumeDropzone">
+              <input type="file" id="resumeFileInput" accept=".pdf,.doc,.docx,.txt" style="display: none;">
+              <div class="upload-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+              </div>
+              <h3 class="upload-title">Upload your resume</h3>
+              <p class="upload-subtitle">Drag & drop your PDF or DOCX here, or <strong style="color: var(--brand-blue); text-decoration: underline;">browse files</strong></p>
+              <div class="upload-formats">Supported formats: PDF, DOC, DOCX, TXT (Max 10MB)</div>
+            </div>
+
+            <!-- UPLOADED FILE STATUS -->
+            <div class="uploaded-file-card" id="uploadedFileStatus">
+              <div class="file-info-group">
+                <div class="file-icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="file-name" id="uploadedFileName">Alex_Morgan_Data_Resume_2026.pdf</div>
+                  <div class="file-meta">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span id="uploadedFileSize">2.4 MB</span> &bull; <span>Successfully uploaded & parsed</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="btn btn-secondary btn-sm" id="btnChangeFile">Replace File</button>
+                <button class="btn btn-primary btn-sm" id="btnTriggerAnalyze">Analyze Resume</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- EXTRACTED RESUME DATA INSPECTOR -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Extracted Resume Content & Structure</h2>
+              <span class="table-badge" style="background: var(--success-bg); color: var(--success); font-weight: 600;">
+                ✓ ATS Parser Verified (100% Readable)
+              </span>
+            </div>
+
+            <div class="grid-2col-equal">
+              <div>
+                <div class="form-group">
+                  <label class="form-label">Professional Summary</label>
+                  <textarea class="form-textarea" id="resumeSummaryText" rows="4">Entry-level student interested in data analytics with academic experience in Python and SQL query building.</textarea>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Work Experience (Parsed)</label>
+                  <textarea class="form-textarea" id="resumeExperienceText" rows="6">• Junior Analytics Intern — TechCorp (2025–Present)
+- Worked on SQL database and made reports in Excel.
+- Built interactive Power BI dashboards for weekly revenue metrics.
+- Assisted engineering team with Python data cleaning scripts.</textarea>
+                </div>
+              </div>
+
+              <div>
+                <div class="form-group">
+                  <label class="form-label">Extracted Technical Skills</label>
+                  <div class="skills-badge-wrap" id="extractedSkillsList" style="margin-bottom: 1rem;">
+                    <span class="skill-badge skill-badge-matched">Python</span>
+                    <span class="skill-badge skill-badge-matched">SQL</span>
+                    <span class="skill-badge skill-badge-matched">Excel</span>
+                    <span class="skill-badge skill-badge-matched">Power BI</span>
+                    <span class="skill-badge skill-badge-matched">Git</span>
+                    <span class="skill-badge skill-badge-matched">Statistics</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Education & Credentials</label>
+                  <textarea class="form-textarea" id="resumeEducationText" rows="4">Bachelor of Science in Computer Science / Statistics
+University of California, Berkeley (2022–2026)</textarea>
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
+                  <button class="btn btn-primary" id="btnSaveResumeEdits">Save & Re-Score Resume</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 3: JOB DESCRIPTION
+             ========================================== -->
+        <section class="view-section" id="view-job-description">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Job Description Matching</h1>
+              <p class="page-subtitle">Paste target job details to extract requirements and evaluate keyword density.</p>
+            </div>
+            <div>
+              <button class="btn btn-primary-blue" id="btnSyncJobAnalysis">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+                </svg>
+                <span>Re-Analyze Match</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="grid-2col">
+            <!-- LEFT: JOB FORM -->
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title">Target Position Details</h2>
+                <span style="font-size: 0.8rem; color: var(--color-slate-400);">Editable input</span>
+              </div>
+
+              <div class="grid-2col-equal">
+                <div class="form-group">
+                  <label class="form-label">Job Title</label>
+                  <input type="text" class="form-input" id="inputJobTitle" value="Data Analyst">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Company</label>
+                  <input type="text" class="form-input" id="inputCompany" value="Stripe">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Full Job Description</label>
+                <textarea class="form-textarea" id="inputJobDescription" rows="12">We are seeking a talented Data Analyst to join our Revenue Operations team. 
+
+Key Responsibilities:
+• Build and maintain robust SQL queries, data models, and automated reporting pipelines.
+• Partner with stakeholders to create executive Power BI and Tableau dashboards.
+• Conduct exploratory data analysis using Python and statistical methodologies.
+• Deploy scalable ETL workflows on cloud platforms including AWS and Docker containers.
+• Collaborate with data engineering on Snowflake data warehousing.
+
+Requirements:
+• 2–4 years of demonstrated experience in data analytics, business intelligence, or quantitative analysis.
+• Bachelor's degree in Computer Science, Statistics, Mathematics, or related field.
+• Deep proficiency in SQL, Python, Excel, and Power BI.
+• Hands-on familiarity with AWS cloud services, Docker, and Airflow orchestration is strongly preferred.
+• Excellent written and verbal communication skills.</textarea>
+              </div>
+
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <span style="font-size: 0.8rem; color: var(--color-slate-500);">Auto-saved locally</span>
+                <button class="btn btn-secondary btn-sm" id="btnResetJobDefault">Reset to Benchmark</button>
+              </div>
+            </div>
+
+            <!-- RIGHT: DETECTED REQUIREMENTS -->
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title">Detected Requirements</h2>
+                <span class="table-badge" style="background: var(--info-bg); color: var(--info-text);">
+                  Live Parser
+                </span>
+              </div>
+
+              <div class="skill-category-block">
+                <div class="skill-category-header">
+                  <span class="skill-category-title">Technical Skills Detected</span>
+                  <span class="skill-category-count badge-count-success" id="detectedTechCount">8 skills</span>
+                </div>
+                <div class="skills-badge-wrap" id="detectedTechBadges">
+                  <span class="skill-badge skill-badge-matched">Python</span>
+                  <span class="skill-badge skill-badge-matched">SQL</span>
+                  <span class="skill-badge skill-badge-matched">Excel</span>
+                  <span class="skill-badge skill-badge-matched">Power BI</span>
+                  <span class="skill-badge skill-badge-improve">Tableau</span>
+                  <span class="skill-badge skill-badge-missing">AWS</span>
+                  <span class="skill-badge skill-badge-missing">Docker</span>
+                  <span class="skill-badge skill-badge-missing">Snowflake</span>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 1.25rem;">
+                <div class="form-label" style="margin-bottom: 0.35rem;">Experience Required</div>
+                <div style="font-size: 0.92rem; font-weight: 600; color: var(--color-slate-900);" id="detectedExpLevel">
+                  2–4 years of analytics or quantitative experience
+                </div>
+              </div>
+
+              <div style="margin-bottom: 1.25rem;">
+                <div class="form-label" style="margin-bottom: 0.35rem;">Education Level</div>
+                <div style="font-size: 0.92rem; font-weight: 600; color: var(--color-slate-900);" id="detectedEduLevel">
+                  Bachelor's degree in CS, Stats, or Math
+                </div>
+              </div>
+
+              <div style="margin-bottom: 1.25rem;">
+                <div class="form-label" style="margin-bottom: 0.35rem;">Key Competencies</div>
+                <ul style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--color-slate-600); line-height: 1.6;">
+                  <li>Automated ETL pipelines & data modeling</li>
+                  <li>Executive dashboarding & BI visualization</li>
+                  <li>Cloud analytics infrastructure (AWS)</li>
+                  <li>Cross-functional stakeholder reporting</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 4: SKILL ANALYSIS
+             ========================================== -->
+        <section class="view-section" id="view-skill-analysis">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Skill Analysis</h1>
+              <p class="page-subtitle">Categorized breakdown of matched qualifications, partial alignments, and missing gaps.</p>
+            </div>
+            <div>
+              <button class="btn btn-secondary btn-sm" data-view="skill-gap">View Skill Gap Chart &rarr;</button>
+            </div>
+          </div>
+
+          <!-- 3 DISTINCT SKILL SECTIONS -->
+          <div class="card" style="margin-bottom: 1.5rem;">
+            <div class="skill-category-block">
+              <div class="skill-category-header">
+                <span class="skill-category-title">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--success);">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Matched Skills (Found in Resume)
+                </span>
+                <span class="skill-category-count badge-count-success" id="matchedSkillsCount">6 Matched</span>
+              </div>
+              <div class="skills-badge-wrap" id="matchedSkillsWrap">
+                <span class="skill-badge skill-badge-matched">✓ Python</span>
+                <span class="skill-badge skill-badge-matched">✓ SQL</span>
+                <span class="skill-badge skill-badge-matched">✓ Excel</span>
+                <span class="skill-badge skill-badge-matched">✓ Power BI</span>
+                <span class="skill-badge skill-badge-matched">✓ Git</span>
+                <span class="skill-badge skill-badge-matched">✓ Statistics</span>
+              </div>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 1.5rem 0;">
+
+            <div class="skill-category-block">
+              <div class="skill-category-header">
+                <span class="skill-category-title">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--warning);">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 2a10 10 0 0 1 10 10v0a10 10 0 0 1-10 10"></path>
+                  </svg>
+                  Skills to Improve (Partial Alignment / Low Frequency)
+                </span>
+                <span class="skill-category-count badge-count-warning" id="improveSkillsCount">2 Skills</span>
+              </div>
+              <div class="skills-badge-wrap" id="improveSkillsWrap">
+                <span class="skill-badge skill-badge-improve">◐ Machine Learning</span>
+                <span class="skill-badge skill-badge-improve">◐ Tableau</span>
+              </div>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 1.5rem 0;">
+
+            <div class="skill-category-block" style="margin-bottom: 0;">
+              <div class="skill-category-header">
+                <span class="skill-category-title">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--danger);">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  Missing Skills (Required by Employer)
+                </span>
+                <span class="skill-category-count badge-count-danger" id="missingSkillsCount">4 Missing</span>
+              </div>
+              <div class="skills-badge-wrap" id="missingSkillsWrap">
+                <span class="skill-badge skill-badge-missing">＋ AWS</span>
+                <span class="skill-badge skill-badge-missing">＋ Docker</span>
+                <span class="skill-badge skill-badge-missing">＋ Apache Airflow</span>
+                <span class="skill-badge skill-badge-missing">＋ Snowflake</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 5: ATS REPORT
+             ========================================== -->
+        <section class="view-section" id="view-ats-report">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">ATS Comprehensive Audit</h1>
+              <p class="page-subtitle">Detailed evaluation across keyword density, formatting standards, and parser compatibility.</p>
+            </div>
+            <div>
+              <button class="btn btn-secondary" onclick="window.print();">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                  <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
+                <span>Print ATS Audit</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ATS MAIN SCORE FOCUS -->
+          <div class="card" style="margin-bottom: 1.5rem;">
+            <div class="ats-score-highlight">
+              <div class="score-circle-wrapper">
+                <svg class="score-svg" viewBox="0 0 120 120">
+                  <circle class="score-track" cx="60" cy="60" r="54"></circle>
+                  <circle class="score-fill" id="reportScoreRing" cx="60" cy="60" r="54"></circle>
+                </svg>
+                <div class="score-inner-text">
+                  <div class="score-number" id="reportScoreVal">82</div>
+                  <div class="score-max">/ 100</div>
+                </div>
+              </div>
+
+              <div class="score-summary-text">
+                <div class="score-badge-status">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Strong ATS Match (Pass Candidate Filter)</span>
+                </div>
+                <p class="score-summary-p">
+                  Your resume has high semantic alignment with the <strong>Data Analyst</strong> posting. Most enterprise Applicant Tracking Systems (Workday, Greenhouse, Taleo) will successfully parse your experience and rank you in the top tier.
+                </p>
+              </div>
+            </div>
+
+            <!-- SCORE METRICS GRID -->
+            <div class="stats-grid" style="margin-top: 1.5rem; margin-bottom: 0;">
+              <div style="padding: 0.75rem; background: var(--color-slate-50); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <div style="font-size: 0.75rem; color: var(--color-slate-500); font-weight: 600;">KEYWORD MATCH</div>
+                <div style="font-size: 1.4rem; font-weight: 700; color: var(--color-slate-900); margin-top: 0.2rem;">86%</div>
+              </div>
+
+              <div style="padding: 0.75rem; background: var(--color-slate-50); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <div style="font-size: 0.75rem; color: var(--color-slate-500); font-weight: 600;">SKILLS MATCH</div>
+                <div style="font-size: 1.4rem; font-weight: 700; color: var(--color-slate-900); margin-top: 0.2rem;">84%</div>
+              </div>
+
+              <div style="padding: 0.75rem; background: var(--color-slate-50); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <div style="font-size: 0.75rem; color: var(--color-slate-500); font-weight: 600;">EXPERIENCE MATCH</div>
+                <div style="font-size: 1.4rem; font-weight: 700; color: var(--color-slate-900); margin-top: 0.2rem;">78%</div>
+              </div>
+
+              <div style="padding: 0.75rem; background: var(--color-slate-50); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <div style="font-size: 0.75rem; color: var(--color-slate-500); font-weight: 600;">EDUCATION MATCH</div>
+                <div style="font-size: 1.4rem; font-weight: 700; color: var(--color-slate-900); margin-top: 0.2rem;">92%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ATS COMPLIANCE AUDIT CHECKLIST -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">ATS Format & Parser Integrity Checklist</h2>
+              <span style="font-size: 0.8rem; color: var(--color-slate-500);">5 Passed &bull; 1 Recommendation</span>
+            </div>
+
+            <div class="compliance-checklist">
+              <div class="compliance-item">
+                <div class="compliance-icon pass">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="compliance-text-title">Standard Section Headings</div>
+                  <div class="compliance-text-desc">Clear detection of Summary, Experience, Education, and Skills headers.</div>
+                </div>
+              </div>
+
+              <div class="compliance-item">
+                <div class="compliance-icon pass">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="compliance-text-title">Clean Document Layout</div>
+                  <div class="compliance-text-desc">No unreadable tables, multi-column bounding boxes, or graphic artifacts.</div>
+                </div>
+              </div>
+
+              <div class="compliance-item">
+                <div class="compliance-icon pass">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="compliance-text-title">Contact & Location Information</div>
+                  <div class="compliance-text-desc">Valid email address, phone number, and LinkedIn profile detected.</div>
+                </div>
+              </div>
+
+              <div class="compliance-item">
+                <div class="compliance-icon warn">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                  </svg>
+                </div>
+                <div>
+                  <div class="compliance-text-title">Action Verb & Metric Density</div>
+                  <div class="compliance-text-desc">Some experience bullets lack quantified business metrics (e.g. percentages, revenue numbers).</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 6: SKILL GAP VISUALIZATION
+             ========================================== -->
+        <section class="view-section" id="view-skill-gap">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Skill Gap Visualization</h1>
+              <p class="page-subtitle">Visual proficiency index comparing your resume against employer benchmark expectations.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Skill Proficiency & Benchmark Alignment</h2>
+              <span style="font-size: 0.8rem; color: var(--color-slate-500);">Target: 70%+ for primary requirements</span>
+            </div>
+
+            <!-- CLEAN HORIZONTAL BAR CHART -->
+            <div class="progress-list" style="gap: 1.5rem;" id="skillGapBarList">
+              <div class="progress-item">
+                <div class="progress-meta">
+                  <span class="progress-label" style="font-weight: 600;">Python</span>
+                  <span class="progress-val">95%</span>
+                </div>
+                <div class="progress-bar-bg" style="height: 10px;">
+                  <div class="progress-bar-fill success" style="width: 95%;"></div>
+                </div>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-meta">
+                  <span class="progress-label" style="font-weight: 600;">SQL</span>
+                  <span class="progress-val">88%</span>
+                </div>
+                <div class="progress-bar-bg" style="height: 10px;">
+                  <div class="progress-bar-fill success" style="width: 88%;"></div>
+                </div>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-meta">
+                  <span class="progress-label" style="font-weight: 600;">Power BI</span>
+                  <span class="progress-val">75%</span>
+                </div>
+                <div class="progress-bar-bg" style="height: 10px;">
+                  <div class="progress-bar-fill success" style="width: 75%;"></div>
+                </div>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-meta">
+                  <span class="progress-label" style="font-weight: 600;">AWS Cloud</span>
+                  <span class="progress-val" style="color: var(--danger);">35%</span>
+                </div>
+                <div class="progress-bar-bg" style="height: 10px;">
+                  <div class="progress-bar-fill warning" style="width: 35%;"></div>
+                </div>
+              </div>
+
+              <div class="progress-item">
+                <div class="progress-meta">
+                  <span class="progress-label" style="font-weight: 600;">Docker & Containers</span>
+                  <span class="progress-val" style="color: var(--danger);">20%</span>
+                </div>
+                <div class="progress-bar-bg" style="height: 10px;">
+                  <div class="progress-bar-fill warning" style="width: 20%; background-color: var(--danger);"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 7: KEYWORD ANALYSIS
+             ========================================== -->
+        <section class="view-section" id="view-keyword-analysis">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Keyword Analysis</h1>
+              <p class="page-subtitle">Exact keyword frequency and presence comparison between resume and job description.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; gap: 1rem; flex-wrap: wrap;">
+              <div style="position: relative; max-width: 320px; width: 100%;">
+                <input type="text" class="form-input" id="keywordSearchInput" placeholder="Filter keywords..." style="padding-left: 2rem;">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="position: absolute; left: 10px; top: 12px; color: var(--color-slate-400);">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </div>
+
+              <div style="display: flex; gap: 0.5rem;" id="keywordFilterBtns">
+                <button class="btn btn-secondary btn-sm active" data-filter="all">All (8)</button>
+                <button class="btn btn-secondary btn-sm" data-filter="matched">Matched (4)</button>
+                <button class="btn btn-secondary btn-sm" data-filter="missing">Missing (4)</button>
+              </div>
+            </div>
+
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Keyword</th>
+                    <th style="text-align: center;">Resume</th>
+                    <th style="text-align: center;">Job Requirement</th>
+                    <th>Status</th>
+                    <th>Importance</th>
+                  </tr>
+                </thead>
+                <tbody id="keywordTableBody">
+                  <!-- Dynamically populated -->
+                  <tr>
+                    <td style="font-weight: 600;">Python</td>
+                    <td style="text-align: center; color: var(--success); font-weight: 700;">✓</td>
+                    <td style="text-align: center; color: var(--success); font-weight: 700;">✓</td>
+                    <td><span class="table-badge" style="background: var(--success-bg); color: var(--success);">Matched</span></td>
+                    <td>High</td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight: 600;">SQL</td>
+                    <td style="text-align: center; color: var(--success); font-weight: 700;">✓</td>
+                    <td style="text-align: center; color: var(--success); font-weight: 700;">✓</td>
+                    <td><span class="table-badge" style="background: var(--success-bg); color: var(--success);">Matched</span></td>
+                    <td>High</td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight: 600;">AWS</td>
+                    <td style="text-align: center; color: var(--color-slate-400);">—</td>
+                    <td style="text-align: center; color: var(--success); font-weight: 700;">✓</td>
+                    <td><span class="table-badge" style="background: var(--danger-bg); color: var(--danger);">Missing</span></td>
+                    <td>High</td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight: 600;">Docker</td>
+                    <td style="text-align: center; color: var(--color-slate-400);">—</td>
+                    <td style="text-align: center; color: var(--success); font-weight: 700;">✓</td>
+                    <td><span class="table-badge" style="background: var(--danger-bg); color: var(--danger);">Missing</span></td>
+                    <td>Medium</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 8: RESUME IMPROVEMENTS
+             ========================================== -->
+        <section class="view-section" id="view-improvements">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Resume Improvements</h1>
+              <p class="page-subtitle">Practical, recruiter-approved rewrite recommendations designed to elevate impact and ATS score.</p>
+            </div>
+          </div>
+
+          <!-- SUMMARY IMPROVEMENT CARD -->
+          <div class="improvement-card">
+            <div class="improvement-header">
+              <div class="improvement-title">1. Professional Summary Enhancement</div>
+              <span class="improvement-badge">High Impact (+8 ATS pts)</span>
+            </div>
+
+            <div class="diff-box-grid">
+              <div class="diff-box diff-box-current">
+                <div class="diff-box-label">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                  Current Resume
+                </div>
+                <div>Entry-level student interested in data analytics.</div>
+              </div>
+
+              <div class="diff-box diff-box-suggested">
+                <div class="diff-box-label">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Suggested Improvement
+                </div>
+                <div id="suggestedSummaryText">Data analytics student with experience in Python, SQL and Power BI, with hands-on academic projects in data visualization and analysis.</div>
+              </div>
+            </div>
+
+            <div class="improvement-actions">
+              <button class="btn btn-secondary btn-sm" id="btnCopySummary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy Suggestion</span>
+              </button>
+              <button class="btn btn-primary-blue btn-sm" id="btnApplySummary">
+                <span>Apply to Resume Draft</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- WORK EXPERIENCE BULLET IMPROVEMENT CARD -->
+          <div class="improvement-card">
+            <div class="improvement-header">
+              <div class="improvement-title">2. Work Experience Bullet Points (Quantified Impact)</div>
+              <span class="improvement-badge">Medium Impact (+5 ATS pts)</span>
+            </div>
+
+            <div class="diff-box-grid">
+              <div class="diff-box diff-box-current">
+                <div class="diff-box-label">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                  Current Resume
+                </div>
+                <div>Worked on SQL database and made reports in Excel.</div>
+              </div>
+
+              <div class="diff-box diff-box-suggested">
+                <div class="diff-box-label">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Suggested Improvement
+                </div>
+                <div id="suggestedBulletText">Engineered automated SQL queries and dynamic Power BI dashboards, reducing recurring weekly reporting cycle time by 34% across 5 stakeholder teams.</div>
+              </div>
+            </div>
+
+            <div class="improvement-actions">
+              <button class="btn btn-secondary btn-sm" id="btnCopyBullet">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy Suggestion</span>
+              </button>
+              <button class="btn btn-primary-blue btn-sm" id="btnApplyBullet">
+                <span>Apply to Resume Draft</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 9: HISTORY
+             ========================================== -->
+        <section class="view-section" id="view-history">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Scan History</h1>
+              <p class="page-subtitle">Track your resume performance across target roles and past application analyses.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Target Position</th>
+                    <th class="col-right">ATS Score</th>
+                    <th class="col-right">Skills Match</th>
+                    <th>Status</th>
+                    <th class="col-right">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="historyTableBody">
+                  <tr>
+                    <td>Sep 29</td>
+                    <td style="font-weight: 600;">Data Analyst</td>
+                    <td class="col-right" style="font-weight: 700; color: var(--success);">82</td>
+                    <td class="col-right" style="font-weight: 600;">87%</td>
+                    <td><span class="table-badge" style="background: var(--success-bg); color: var(--success);">Strong Match</span></td>
+                    <td class="col-right">
+                      <button class="btn btn-secondary btn-sm" onclick="app.loadScanHistory(0)">View</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sep 27</td>
+                    <td style="font-weight: 600;">Business Analyst</td>
+                    <td class="col-right" style="font-weight: 700; color: var(--warning);">76</td>
+                    <td class="col-right" style="font-weight: 600;">79%</td>
+                    <td><span class="table-badge" style="background: var(--warning-bg); color: var(--warning);">Moderate Match</span></td>
+                    <td class="col-right">
+                      <button class="btn btn-secondary btn-sm" onclick="app.loadScanHistory(1)">View</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sep 24</td>
+                    <td style="font-weight: 600;">Python Developer</td>
+                    <td class="col-right" style="font-weight: 700; color: var(--color-slate-700);">71</td>
+                    <td class="col-right" style="font-weight: 600;">73%</td>
+                    <td><span class="table-badge" style="background: var(--color-slate-100); color: var(--color-slate-700);">Needs Review</span></td>
+                    <td class="col-right">
+                      <button class="btn btn-secondary btn-sm" onclick="app.loadScanHistory(2)">View</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- SETTINGS / PROFILE MODAL -->
+  <div class="modal-overlay" id="profileModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="card-title">Account & Platform Settings</h3>
+        <button class="btn-ghost btn-sm" id="btnCloseModal" style="font-size: 1.25rem;">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" value="Alex Morgan">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" value="alex.morgan@career.io">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Target Industry</label>
+          <select class="form-select">
+            <option>Tech & Software</option>
+            <option>Finance & Banking</option>
+            <option>Consulting</option>
+            <option>Healthcare</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">ATS Sensitivity Level</label>
+          <select class="form-select">
+            <option>Standard (Workday / Greenhouse benchmark)</option>
+            <option>Strict (Fortune 500 Enterprise filter)</option>
+            <option>Startup / High-Growth</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="btnCancelModal">Close</button>
+        <button class="btn btn-primary" id="btnSaveProfile">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
